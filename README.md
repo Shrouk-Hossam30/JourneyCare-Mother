@@ -35,6 +35,35 @@ The platform helps mothers manage pregnancy and child healthcare, book appointme
 - Bcrypt
 
 ---
+# 🔗 Project Resources
+
+## 📦 GitHub Repository
+
+Source Code:
+
+**https://github.com/rabea-shaban/JourneyCare-Mother**
+
+---
+
+## 🎨 UI Design
+
+Live UI Preview:
+
+**https://journey-care-ui.vercel.app/**
+
+This design serves as the primary UI/UX reference for the project. All new pages and components should follow the same design system, color palette, spacing, typography, and responsive behavior.
+
+---
+
+## 📌 Development Guidelines
+
+- Follow the existing UI design.
+- Keep the design consistent across all pages.
+- Reuse components whenever possible.
+- Do not change the design language without team discussion.
+- Make all pages responsive.
+- Use the same colors, spacing, typography, and component styles throughout the application.
+- 
 
 # 👨‍💻 Development Team
 
