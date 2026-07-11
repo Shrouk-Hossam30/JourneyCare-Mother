@@ -9,9 +9,9 @@ A full-stack healthcare platform that connects **Mothers**, **Doctors**, **Child
 | Name | Responsibility |
 |------|----------------|
 | **Rabea** | Tech Lead, Backend Core, Authentication, Project Architecture, Git Management |
-| **Mai** | Mother & Child Module (Frontend + Backend) |
-| **Shorouk** | Clinical System (Appointments, Payments, Chat, Queue, Video) |
-| **Zaghloul** | Doctor Module & Admin Module (Frontend + Backend) |
+| **Shorouk** | Mother & Child Module (Frontend + Backend) |
+| **Zaghloul** | Clinical System (Appointments, Payments, Chat, Queue, Video) |
+| **Mai** | Doctor Module & Admin Module (Frontend + Backend) |
 
 ---
 
