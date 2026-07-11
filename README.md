@@ -426,6 +426,7 @@ src
 
 - Manage Profile
 - Manage Availability
+- View Appointment daily/weekly
 - View Patients
 - Write Prescriptions
 - Visit Reports
