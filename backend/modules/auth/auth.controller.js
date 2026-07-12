@@ -2,6 +2,8 @@ const User = require('./user.model');
 const { hashPassword, comparePassword } = require('../../utils/bcrypt');
 const { generateToken } = require('../../utils/jwt');
 
+const { StreamChat } = require('stream-chat');
+
 // ================= Register =================
 const register = async (req, res) => {
   const { fullName, email, password, phone, role } = req.body;
@@ -18,7 +20,10 @@ const register = async (req, res) => {
 
   // Hash Password
   const hashedPassword = await hashPassword(password);
+  
+  
   const status = role === 'doctor' ? 'pending' : 'active';
+  
   // Create User
   const user = await User.create({
     fullName,
@@ -26,6 +31,7 @@ const register = async (req, res) => {
     password: hashedPassword,
     phone,
     role,
+    status 
   });
 
   res.status(201).json({
@@ -73,16 +79,42 @@ const login = async (req, res) => {
     });
   }
 
-  // Generate Token
+  
   const token = generateToken({
     id: user._id,
     role: user.role,
   });
 
+  // =================  Stream Chat & Video Call  =================
+  let streamToken = '';
+  try {
+    
+    const serverClient = StreamChat.getInstance(process.env.STREAM_API_KEY, process.env.STREAM_API_SECRET);
+    
+    
+    const userId = user._id.toString();
+
+      
+    await serverClient.upsertUser({
+      id: userId,
+      name: user.fullName,
+      role: user.role === 'admin' ? 'admin' : 'user', 
+      image: user.profileImage || '',
+    });
+
+    
+    streamToken = serverClient.createToken(userId);
+  } catch (streamError) {
+    console.error('Stream Error:', streamError.message);
+
+  }
+
+
   res.status(200).json({
     success: true,
     message: 'Login successful',
     token,
+    streamToken, 
     data: {
       id: user._id,
       fullName: user.fullName,
@@ -115,6 +147,7 @@ const getMe = async (req, res) => {
     });
   }
 };
+
 module.exports = {
   register,
   login,
