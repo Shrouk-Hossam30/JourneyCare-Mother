@@ -35,6 +35,7 @@ The platform helps mothers manage pregnancy and child healthcare, book appointme
 - Bcrypt
 
 ---
+
 # 🔗 Project Resources
 
 ## 📦 GitHub Repository
@@ -55,6 +56,278 @@ This design serves as the primary UI/UX reference for the project. All new pages
 
 ---
 
+# 🚀 Development Workflow
+
+This project follows a **Git Flow** workflow to ensure smooth collaboration between all team members.
+
+## 🌿 Branch Structure
+
+```
+main
+│
+└── develop
+      │
+      ├── feature/rabea
+      ├── feature/shorouk
+      ├── feature/zaghloul
+      └── feature/mai
+```
+
+- **main** → Production / Final Stable Version
+- **develop** → Integration Branch
+- **feature/\*** → Individual Development Branches
+
+---
+
+# 📥 Step 1: Clone Repository
+
+Clone the repository:
+
+```bash
+git clone https://github.com/rabea-shaban/JourneyCare-Mother.git
+```
+
+Move into the project directory:
+
+```bash
+cd JourneyCare-Mother
+```
+
+---
+
+# 🌱 Step 2: Switch to Develop
+
+Never start working directly on **main**.
+
+```bash
+git checkout develop
+git pull origin develop
+```
+
+---
+
+# 🌿 Step 3: Switch to Your Feature Branch
+
+### 👨‍💻 Rabea
+
+```bash
+git checkout feature/rabea
+```
+
+### 👩‍💻 Shorouk
+
+```bash
+git checkout feature/shorouk
+```
+
+### 👨‍💻 Zaghloul
+
+```bash
+git checkout feature/zaghloul
+```
+
+### 👩‍💻 Mai
+
+```bash
+git checkout feature/mai
+```
+
+---
+
+# 📦 Step 4: Install Dependencies
+
+## Backend
+
+```bash
+cd backend
+npm install
+```
+
+or
+
+```bash
+yarn
+```
+
+---
+
+## Frontend
+
+```bash
+cd frontend
+npm install
+```
+
+or
+
+```bash
+yarn
+```
+
+---
+
+# ⚙️ Step 5: Configure Environment Variables
+
+## Backend
+
+Create a `.env` file inside the backend folder.
+
+```env
+PORT=5000
+
+MONGO_URI=YOUR_MONGODB_URI
+
+JWT_SECRET=YOUR_SECRET_KEY
+```
+
+---
+
+## Frontend
+
+Create a `.env` file inside the frontend folder.
+
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
+---
+
+# ▶️ Step 6: Run the Project
+
+## Backend
+
+```bash
+cd backend
+npm run dev
+```
+
+---
+
+## Frontend
+
+```bash
+cd frontend
+npm run dev
+```
+
+---
+
+# 💻 Step 7: Start Development
+
+Work **only** on your own feature branch.
+
+❌ Never commit directly to:
+
+- `main`
+- `develop`
+
+---
+
+# 💾 Step 8: Commit Your Changes
+
+```bash
+git add .
+git commit -m "Complete Mother Profile Module"
+```
+
+Example:
+
+```bash
+git commit -m "Complete Doctor Dashboard"
+```
+
+---
+
+# ☁️ Step 9: Push Your Branch
+
+Example:
+
+```bash
+git push origin feature/shorouk
+```
+
+Replace the branch name with your own branch.
+
+---
+
+# 🔀 Step 10: Create a Pull Request
+
+After finishing your feature:
+
+```
+feature/<your-name>
+        │
+        ▼
+     develop
+```
+
+**Do NOT create a Pull Request to `main`.**
+
+---
+
+# 🔄 Step 11: Get Latest Updates
+
+After your Pull Request is merged into **develop**:
+
+```bash
+git checkout develop
+git pull origin develop
+```
+
+Switch back to your branch:
+
+```bash
+git checkout feature/<your-name>
+```
+
+Merge the latest develop changes:
+
+```bash
+git merge develop
+```
+
+---
+
+# 👨‍💻 Team Responsibilities
+
+| Member       | Branch             | Responsibilities                                                |
+| ------------ | ------------------ | --------------------------------------------------------------- |
+| **Rabea**    | `feature/rabea`    | Core, Authentication, Admin, Blog, Task, Notification           |
+| **Shorouk**  | `feature/shorouk`  | Mother Module, Child Module, Growth Dashboard                   |
+| **Zaghloul** | `feature/zaghloul` | Clinical System, Appointments, Payment, Queue, Chat, Video Call |
+| **Mai**      | `feature/mai`      | Doctor Module, Doctor Dashboard, Visit Report, Prescription     |
+
+---
+
+# 📌 Git Workflow
+
+```
+                main
+                  ▲
+                  │
+              develop
+      ┌────────┼────────┬────────┐
+      │        │        │        │
+ feature/  feature/  feature/  feature/
+ rabea    shorouk   zaghloul     mai
+```
+
+---
+
+# 📋 Team Rules
+
+- ✅ Work only on your own feature branch.
+- ✅ Pull the latest changes from `develop` before starting work.
+- ✅ Push only to your own feature branch.
+- ✅ Create Pull Requests only to `develop`.
+- ❌ Never push directly to `main`.
+- ❌ Never push directly to `develop`.
+- ✅ All Pull Requests must be reviewed and approved by the **Tech Lead (Rabea)** before merging.
+
+---
+
+## Happy Coding! 🚀
+
 ## 📌 Development Guidelines
 
 - Follow the existing UI design.
@@ -63,16 +336,16 @@ This design serves as the primary UI/UX reference for the project. All new pages
 - Do not change the design language without team discussion.
 - Make all pages responsive.
 - Use the same colors, spacing, typography, and component styles throughout the application.
-- 
+-
 
 # 👨‍💻 Development Team
 
-| Name | Responsibility |
-|------|----------------|
-| **Rabea** | **Tech Lead**, Backend Core, Authentication, Admin Module (Frontend + Backend), Project Architecture, Git Management, Integration, Code Review |
-| **Shorouk** | Mother & Child Module (Frontend + Backend) |
-| **Zaghloul** | Clinical Module (Appointments, Payments, Queue, Chat, Video Call) (Frontend + Backend) |
-| **Mai** | Doctor Module (Frontend + Backend) |
+| Name         | Responsibility                                                                                                                                 |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Rabea**    | **Tech Lead**, Backend Core, Authentication, Admin Module (Frontend + Backend), Project Architecture, Git Management, Integration, Code Review |
+| **Shorouk**  | Mother & Child Module (Frontend + Backend)                                                                                                     |
+| **Zaghloul** | Clinical Module (Appointments, Payments, Queue, Chat, Video Call) (Frontend + Backend)                                                         |
+| **Mai**      | Doctor Module (Frontend + Backend)                                                                                                             |
 
 ---
 
