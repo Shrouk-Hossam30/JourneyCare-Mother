@@ -18,7 +18,19 @@ const register = async (req, res) => {
 
   // Hash Password
   const hashedPassword = await hashPassword(password);
+<<<<<<< Updated upstream
   const status = role === 'doctor' ? 'pending' : 'active';
+=======
+
+  const status = role === 'doctor' ? 'pending' : 'active';
+
+  if (role === 'admin') {
+    return res.status(403).json({
+      success: false,
+      message: 'Admin account cannot be created from registration.',
+    });
+  }
+>>>>>>> Stashed changes
   // Create User
   const user = await User.create({
     fullName,
@@ -26,6 +38,10 @@ const register = async (req, res) => {
     password: hashedPassword,
     phone,
     role,
+<<<<<<< Updated upstream
+=======
+    status,
+>>>>>>> Stashed changes
   });
 
   res.status(201).json({
@@ -73,16 +89,48 @@ const login = async (req, res) => {
     });
   }
 
+<<<<<<< Updated upstream
   // Generate Token
+=======
+>>>>>>> Stashed changes
   const token = generateToken({
     id: user._id,
     role: user.role,
   });
 
+<<<<<<< Updated upstream
+=======
+  // =================  Stream Chat & Video Call  =================
+  let streamToken = '';
+  try {
+    const serverClient = StreamChat.getInstance(
+      process.env.STREAM_API_KEY,
+      process.env.STREAM_API_SECRET,
+    );
+
+    const userId = user._id.toString();
+
+    await serverClient.upsertUser({
+      id: userId,
+      name: user.fullName,
+      role: user.role === 'admin' ? 'admin' : 'user',
+      image: user.profileImage || '',
+    });
+
+    streamToken = serverClient.createToken(userId);
+  } catch (streamError) {
+    console.error('Stream Error:', streamError.message);
+  }
+
+>>>>>>> Stashed changes
   res.status(200).json({
     success: true,
     message: 'Login successful',
     token,
+<<<<<<< Updated upstream
+=======
+    streamToken,
+>>>>>>> Stashed changes
     data: {
       id: user._id,
       fullName: user.fullName,
