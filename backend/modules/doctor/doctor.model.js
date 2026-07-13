@@ -33,6 +33,14 @@ const doctorSchema = new mongoose.Schema({
         chat: Number,
         video: Number
     },
+    slots: [{
+        day: { type: Date, required: true, default: null },
+        time: {
+            type: String,
+            required: true,
+            default: null
+        }
+    }],
 
 }, { timestamps: true });
 

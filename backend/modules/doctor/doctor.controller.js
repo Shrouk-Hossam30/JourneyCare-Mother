@@ -2,6 +2,8 @@ const Doctor = require('./doctor.model');
 const User = require('../auth/user.model');
 
 
+
+//-----------------------doctor apis data after registeration-----------------------
 const formSubmission = async (req, res) => {
     try {
         const {
@@ -17,7 +19,7 @@ const formSubmission = async (req, res) => {
         const doctorId = req.params.id;
 
         // Check that the National ID isn't used by another doctor
-        // عشان لو الدكتور مسجل قبل كدا
+
         const existDoctor = await Doctor.findOne({
             nationalId,
             _id: { $ne: doctorId }
@@ -159,32 +161,105 @@ const getDoctorById = async (req, res) => {
 const setSlots = async (req, res) => {
     try {
         const { slots } = req.body;
-        const doctorId = req.user.id;
+        const doctorId = req.params.id
+
         const doctor = await Doctor.findByIdAndUpdate(
             doctorId,
-            { slots },
+            {
+                $push: {
+                    slots: { $each: slots }
+                }
+            },
             { new: true, runValidators: true }
         );
+
+        if (!doctor) {
+            return res.status(404).json({ message: "Doctor not found" });
+        }
         await doctor.save();
-        res.status(200).json({ message: "slots set" });
+        res.status(200).json({ message: "slots added" });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
 
+
+const getSlots = async (req, res) => {
+    try {
+        const doctor = await Doctor.findById(req.params.id);
+        res.status(200).json({ slots: doctor.slots });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+const deleteSlots = async (req, res) => {
+    try {
+        const doctor = await Doctor.findById(req.params.id);
+        doctor.slots = [];
+        await doctor.save();
+        res.status(200).json({ message: "slots deleted" });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+const cancelSlot = async (req, res) => {
+    try {
+        const doctor = await Doctor.findById(req.params.id);
+
+        if (!doctor) {
+            return res.status(404).json({ message: "Doctor not found" });
+        }
+
+        const { slotId } = req.body;
+
+        doctor.slots.pull(slotId);
+
+        await doctor.save();
+
+        res.status(200).json({ message: "Slot deleted successfully" });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
+//----------------------doctor apis related to appointments----------------------
 const getAppointments = async (req, res) => {
     // To be implemented
-};
+};  // to test it you need appointment data
+
+const getAppointmentById = async (req, res) => {
+    // To be implemented
+};  // to test it you need appointment data
+
+const updateAppointmentStatus = async (req, res) => {
+    // To be implemented
+};  // to test it you need appointment data
 
 const getMotherProfile = async (req, res) => {
     // To be implemented
-};
+};// to test it you need appointment data
+
 
 const deleteAppointment = async (req, res) => {
     // To be implemented
-};
+};// to test it you need appointment data
 
 
+
+//----------------------doctor apis related to reviews----------------------
+const getReviews = async (req, res) => {
+    // To be implemented
+};// to test it you need appointment data
+
+
+
+//----------------------After visit--------------------------------
+const postVisitReport = async (req, res) => {
+    //to be implemented
+}
 
 module.exports = {
     formSubmission,
@@ -192,6 +267,9 @@ module.exports = {
     getAllDoctors,
     getDoctorById,
     setSlots,
+    getSlots,
+    cancelSlot,
+    deleteSlots,
     getAppointments,
     getMotherProfile,
     deleteAppointment
