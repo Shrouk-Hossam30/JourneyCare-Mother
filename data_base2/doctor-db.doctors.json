@@ -1,0 +1,185 @@
+[{
+  "_id": {
+    "$oid": "6a58f624e78eb92a92dcad92"
+  },
+  "userId": {
+    "$oid": "6a58f624e78eb92a92dcad92"
+  },
+  "nationalId": "NAT-100200300",
+  "name": "Dr. Sarah Connor",
+  "email": "sarah.connor@journeycare.com",
+  "password": "$2b$10$h.M6GnUgEQ3DcsJqqHhb5OVdWp5H7sMOYJknomQO4wM6f7DpcYvtq",
+  "medicalLicense": {
+    "number": "LIC-77889900",
+    "expiryDate": {
+      "$date": "2030-12-31T00:00:00Z"
+    }
+  },
+  "specialty": "Pediatrics",
+  "experience": 8,
+  "about": "Dedicated pediatrician specializing in neonatal care and developmental milestones.",
+  "location": "New York",
+  "approvalStatus": "approved",
+  "isActive": true,
+  "consultationFees": {
+    "visit": 150,
+    "chat": 30,
+    "video": 80
+  },
+  "slots": [],
+  "createdAt": {
+    "$date": "2026-07-16T15:17:56.835Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-16T15:17:56.835Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a58f625e78eb92a92dcad94"
+  },
+  "userId": {
+    "$oid": "6a58f625e78eb92a92dcad94"
+  },
+  "nationalId": "NAT-400500600",
+  "name": "Dr. James Carter",
+  "email": "james.carter@journeycare.com",
+  "password": "$2b$10$JK9Bb5KSaiifhxQEuf1yNuzTsgZqIf0xtH97..vei4VkRUBtYPl6S",
+  "medicalLicense": {
+    "number": "LIC-11223344",
+    "expiryDate": {
+      "$date": "2029-06-30T00:00:00Z"
+    }
+  },
+  "specialty": "Obstetrics & Gynecology",
+  "experience": 12,
+  "about": "Compassionate OB-GYN with extensive experience in high-risk pregnancies and maternal health.",
+  "location": "Los Angeles",
+  "approvalStatus": "approved",
+  "isActive": true,
+  "consultationFees": {
+    "visit": 200,
+    "chat": 40,
+    "video": 100
+  },
+  "slots": [],
+  "createdAt": {
+    "$date": "2026-07-16T15:17:57.529Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-16T15:17:57.529Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a58f625e78eb92a92dcad96"
+  },
+  "userId": {
+    "$oid": "6a58f625e78eb92a92dcad96"
+  },
+  "nationalId": "NAT-700800900",
+  "name": "Dr. Elena Rostova",
+  "email": "elena.rostova@journeycare.com",
+  "password": "$2b$10$7y2y50FS.qFW7sQyz7A56.X5wB8QzDqvy34wwwjsX7Rb1lZDO2gK6",
+  "medicalLicense": {
+    "number": "LIC-55667788",
+    "expiryDate": {
+      "$date": "2028-09-15T00:00:00Z"
+    }
+  },
+  "specialty": "Dermatology",
+  "experience": 6,
+  "about": "Board-certified dermatologist focusing on pediatric skin conditions and prenatal skin care.",
+  "location": "Chicago",
+  "approvalStatus": "approved",
+  "isActive": true,
+  "consultationFees": {
+    "visit": 120,
+    "chat": 25,
+    "video": 70
+  },
+  "slots": [],
+  "createdAt": {
+    "$date": "2026-07-16T15:17:58.222Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-16T15:17:58.222Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a58f626e78eb92a92dcad98"
+  },
+  "userId": {
+    "$oid": "6a58f626e78eb92a92dcad98"
+  },
+  "nationalId": "NAT-111222333",
+  "name": "Dr. Emily Watson",
+  "email": "emily.watson@journeycare.com",
+  "password": "$2b$10$46BGWczr9GByhxvEqA9yMOXvDMki2flgV/ObqDGQouAYCKkrp4HKO",
+  "medicalLicense": {
+    "number": "LIC-99887766",
+    "expiryDate": {
+      "$date": "2031-01-20T00:00:00Z"
+    }
+  },
+  "specialty": "Psychiatry",
+  "experience": 10,
+  "about": "Specialized in perinatal and postnatal mental health, helping mothers navigate postpartum depression and anxiety.",
+  "location": "Boston",
+  "approvalStatus": "approved",
+  "isActive": true,
+  "consultationFees": {
+    "visit": 180,
+    "chat": 50,
+    "video": 120
+  },
+  "slots": [],
+  "createdAt": {
+    "$date": "2026-07-16T15:17:58.915Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-16T15:17:58.915Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a58f627e78eb92a92dcad9a"
+  },
+  "userId": {
+    "$oid": "6a58f627e78eb92a92dcad9a"
+  },
+  "nationalId": "NAT-444555666",
+  "name": "Dr. Alan Grant",
+  "email": "alan.grant@journeycare.com",
+  "password": "$2b$10$9bu9lFM2LPkEgNB95KWLL.YKRN.w5RQO/4DaTK02e6J5bdEobDjX6",
+  "medicalLicense": {
+    "number": "LIC-22334455",
+    "expiryDate": {
+      "$date": "2027-11-11T00:00:00Z"
+    }
+  },
+  "specialty": "Family Medicine",
+  "experience": 5,
+  "about": "Family medicine physician with a passion for preventative care and community health education.",
+  "location": "Houston",
+  "approvalStatus": "pending",
+  "isActive": false,
+  "consultationFees": {
+    "visit": 100,
+    "chat": 20,
+    "video": 60
+  },
+  "slots": [],
+  "createdAt": {
+    "$date": "2026-07-16T15:17:59.608Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-16T15:17:59.608Z"
+  },
+  "__v": 0
+}]

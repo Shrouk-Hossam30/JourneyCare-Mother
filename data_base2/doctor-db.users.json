@@ -1,0 +1,146 @@
+[{
+  "_id": {
+    "$oid": "6a58f624e78eb92a92dcad92"
+  },
+  "fullName": "Dr. Sarah Connor",
+  "email": "sarah.connor@journeycare.com",
+  "password": "$2b$10$h.M6GnUgEQ3DcsJqqHhb5OVdWp5H7sMOYJknomQO4wM6f7DpcYvtq",
+  "phone": "+1234567890",
+  "role": "doctor",
+  "status": "active",
+  "profileImage": null,
+  "createdAt": {
+    "$date": "2026-07-16T15:17:56.506Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-16T15:17:56.506Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a58f625e78eb92a92dcad94"
+  },
+  "fullName": "Dr. James Carter",
+  "email": "james.carter@journeycare.com",
+  "password": "$2b$10$JK9Bb5KSaiifhxQEuf1yNuzTsgZqIf0xtH97..vei4VkRUBtYPl6S",
+  "phone": "+1234567891",
+  "role": "doctor",
+  "status": "active",
+  "profileImage": null,
+  "createdAt": {
+    "$date": "2026-07-16T15:17:57.203Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-16T15:17:57.203Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a58f625e78eb92a92dcad96"
+  },
+  "fullName": "Dr. Elena Rostova",
+  "email": "elena.rostova@journeycare.com",
+  "password": "$2b$10$7y2y50FS.qFW7sQyz7A56.X5wB8QzDqvy34wwwjsX7Rb1lZDO2gK6",
+  "phone": "+1234567892",
+  "role": "doctor",
+  "status": "active",
+  "profileImage": null,
+  "createdAt": {
+    "$date": "2026-07-16T15:17:57.897Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-16T15:17:57.897Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a58f626e78eb92a92dcad98"
+  },
+  "fullName": "Dr. Emily Watson",
+  "email": "emily.watson@journeycare.com",
+  "password": "$2b$10$46BGWczr9GByhxvEqA9yMOXvDMki2flgV/ObqDGQouAYCKkrp4HKO",
+  "phone": "+1234567893",
+  "role": "doctor",
+  "status": "active",
+  "profileImage": null,
+  "createdAt": {
+    "$date": "2026-07-16T15:17:58.590Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-16T15:17:58.590Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a58f627e78eb92a92dcad9a"
+  },
+  "fullName": "Dr. Alan Grant",
+  "email": "alan.grant@journeycare.com",
+  "password": "$2b$10$9bu9lFM2LPkEgNB95KWLL.YKRN.w5RQO/4DaTK02e6J5bdEobDjX6",
+  "phone": "+1234567894",
+  "role": "doctor",
+  "status": "pending",
+  "profileImage": null,
+  "createdAt": {
+    "$date": "2026-07-16T15:17:59.283Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-16T15:17:59.283Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "6a58f627e78eb92a92dcad9e",
+  "fullName": "Mariam Ahmed",
+  "email": "mariam@gmail.com",
+  "password": "$2b$10$7y2y50FS.qFW7sQyz7A56.X5wB8QzDqvy34wwwjsX7Rb1lZDO2gK6",
+  "phone": "+1200000000",
+  "role": "mother",
+  "status": "active",
+  "profileImage": null,
+  "createdAt": "2026-07-16T15:17:59.283Z",
+  "updatedAt": "2026-07-16T15:17:59.283Z",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a59f5dd5f3d18123ec9562e"
+  },
+  "fullName": "Mariam Tester",
+  "email": "mariam.test@gmail.com",
+  "password": "$2b$10$93Ab5mWYRy8hEnE2.ZJ.IeSLJzC9hbMOdAzaP49PZ2bI6X.xxrNha",
+  "phone": "01012345678",
+  "role": "mother",
+  "status": "active",
+  "profileImage": null,
+  "createdAt": {
+    "$date": "2026-07-17T09:29:01.831Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-17T09:29:01.831Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a59fadd5f3d18123ec9562f"
+  },
+  "fullName": "Dr. Sarah Tester",
+  "email": "sarah.doctor@gmail.com",
+  "password": "$2b$10$geQ9ik0K1JSFobySbcHngO.PfzqbyNaEF7/i52WWypUYHzyYJHVW6",
+  "phone": "01098765432",
+  "role": "doctor",
+  "status": "pending",
+  "profileImage": null,
+  "createdAt": {
+    "$date": "2026-07-17T09:50:21.912Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-17T09:50:21.912Z"
+  },
+  "__v": 0
+}]
