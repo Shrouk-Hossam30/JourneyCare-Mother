@@ -1,7 +1,6 @@
 const User = require('./user.model');
 const { hashPassword, comparePassword } = require('../../utils/bcrypt');
 const { generateToken } = require('../../utils/jwt');
-
 const { StreamChat } = require('stream-chat');
 
 // ================= Register =================
@@ -21,10 +20,9 @@ const register = async (req, res) => {
   // Hash Password
   const hashedPassword = await hashPassword(password);
   
-  
   const status = role === 'doctor' ? 'pending' : 'active';
   
-  // Create User
+  // Create User in Local DB
   const user = await User.create({
     fullName,
     email,
@@ -33,6 +31,21 @@ const register = async (req, res) => {
     role,
     status 
   });
+
+  // ================= Register User in Stream Chat =================
+  try {
+    const serverClient = StreamChat.getInstance(process.env.STREAM_API_KEY, process.env.STREAM_API_SECRET);
+    const userId = user._id.toString();
+
+    await serverClient.upsertUser({
+      id: userId,
+      name: user.fullName,
+      role: user.role === 'admin' ? 'admin' : 'user',
+      image: user.profileImage || '',
+    });
+  } catch (streamError) {
+    console.error('Stream Register Error:', streamError.message);
+  }
 
   res.status(201).json({
     success: true,
@@ -79,36 +92,19 @@ const login = async (req, res) => {
     });
   }
 
-  
   const token = generateToken({
     id: user._id,
     role: user.role,
   });
 
-  // =================  Stream Chat & Video Call  =================
+  // ================= Stream Chat Token =================
   let streamToken = '';
   try {
-    
     const serverClient = StreamChat.getInstance(process.env.STREAM_API_KEY, process.env.STREAM_API_SECRET);
-    
-    
-    const userId = user._id.toString();
-
-      
-    await serverClient.upsertUser({
-      id: userId,
-      name: user.fullName,
-      role: user.role === 'admin' ? 'admin' : 'user', 
-      image: user.profileImage || '',
-    });
-
-    
-    streamToken = serverClient.createToken(userId);
+    streamToken = serverClient.createToken(user._id.toString());
   } catch (streamError) {
-    console.error('Stream Error:', streamError.message);
-
+    console.error('Stream Token Error:', streamError.message);
   }
-
 
   res.status(200).json({
     success: true,
@@ -125,6 +121,7 @@ const login = async (req, res) => {
   });
 };
 
+// ================= Get Me =================
 const getMe = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
