@@ -73,6 +73,12 @@ const approveDoctor = async (req, res) => {
         message: 'Doctor not found',
       });
     }
+    if (doctor.status === 'active') {
+      return res.status(400).json({
+        success: false,
+        message: 'Doctor is already approved',
+      });
+    }
 
     doctor.status = 'active';
 
@@ -90,9 +96,55 @@ const approveDoctor = async (req, res) => {
     });
   }
 };
+const rejectDoctor = async (req, res) => {
+  try {
+    const { id } = req.params;
 
+    const doctor = await User.findOne({
+      _id: id,
+      role: 'doctor',
+    });
+
+    if (!doctor) {
+      return res.status(404).json({
+        success: false,
+        message: 'Doctor not found',
+      });
+    }
+
+    if (doctor.status === 'rejected') {
+      return res.status(400).json({
+        success: false,
+        message: 'Doctor is already rejected',
+      });
+    }
+
+    if (doctor.status === 'active') {
+      return res.status(400).json({
+        success: false,
+        message: 'Cannot reject an active doctor',
+      });
+    }
+
+    doctor.status = 'rejected';
+
+    await doctor.save();
+
+    return res.status(200).json({
+      success: true,
+      message: 'Doctor rejected successfully',
+      data: doctor,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 module.exports = {
   dashboard,
   pendingDoctors,
   approveDoctor,
+  rejectDoctor,
 };
