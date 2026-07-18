@@ -13,6 +13,10 @@ const register = async (req, res) => {
     });
   }
 
+  if (role === 'doctor' && !req.file) {
+    return res.status(400).json({ success: false, message: 'Credential file is required for doctors' });
+  }
+
   const existingUser = await User.findOne({ email });
   if (existingUser) {
     return res.status(409).json({ success: false, message: 'Email already exists' });
@@ -20,6 +24,7 @@ const register = async (req, res) => {
 
   const hashedPassword = await hashPassword(password);
   const status = role === 'doctor' ? 'pending' : 'active';
+  const credential = req.file ? req.file.path : null;
 
   const user = await User.create({
     fullName,
@@ -28,6 +33,7 @@ const register = async (req, res) => {
     phone,
     role,
     status,
+    credential,
   });
 
   res.status(201).json({
